@@ -1,8 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
-import path from 'path';
 
-// Carregar variáveis do arquivo .env (se existir)
 dotenv.config();
 
 export default defineConfig({
@@ -11,6 +9,7 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
+  timeout: 30_000,
   
   reporter: [
     ['html', { outputFolder: 'playwright-report' }],
@@ -18,11 +17,11 @@ export default defineConfig({
   ],
   
   use: {
-    // Usando variável de ambiente se existir
     baseURL: process.env.BASE_URL || 'https://www.saucedemo.com',
+    channel: process.env.PLAYWRIGHT_CHANNEL as 'chrome' | 'msedge' | undefined,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    video: process.env.CI ? 'retain-on-failure' : 'off',
   },
   
   projects: [
@@ -32,3 +31,4 @@ export default defineConfig({
     },
   ],
 });
+
