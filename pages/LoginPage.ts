@@ -16,7 +16,7 @@ export class LoginPage {
   }
 
   async goto() {
-    await this.page.goto('https://www.saucedemo.com', { timeout: 30000 });
+    await this.page.goto('/');
   }
 
   async login(username: string, password: string) {
@@ -33,3 +33,4 @@ export class LoginPage {
     return await this.errorMessage.isVisible();
   }
 }
+
