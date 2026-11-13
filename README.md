@@ -35,11 +35,21 @@ npm run report
 - Page Object Model
 - GitHub Actions
 
+## Documentação de qualidade
+
+- [Estratégia de testes](docs/estrategia-de-testes.md)
+- [Matriz de riscos](docs/matriz-de-riscos.md)
+- [Casos de teste](docs/casos-de-teste.md)
+- [Relatório de teste exploratório](docs/relatorio-teste-exploratorio.md)
+- [Exemplo de relatório de bug](docs/exemplo-relatorio-bug.md)
+- [Limitações conhecidas](docs/limitacoes-conhecidas.md)
+
 ## Estrutura do projeto
 
 ```text
 playwright-saucedemo-tests/
 ├── .github/workflows/
+├── docs/
 ├── pages/
 ├── test-data/
 ├── tests/
